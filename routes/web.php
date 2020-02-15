@@ -11,4 +11,5 @@
 |
 */
 
-Route::get('/buy/{plot_id}', 'BuyController@OrderInfo');
+Route::get('/buy/{plot_id}/order-info',   'BuyController@OrderInfo');
+Route::get('/buy/{plot_id}/order-submit', 'BuyController@OrderSubmit');
