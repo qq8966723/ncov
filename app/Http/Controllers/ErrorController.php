@@ -12,7 +12,7 @@ class ErrorController extends BaseController
         $output = array(
             'url'   => $request->getPathInfo(),
             'title' => '发生错误',
-            'msg'   => $request->session()->get('msg');
+            'msg'   => $request->session()->get('msg'),
             // 'offers'       => $this->statAdQuality->getAppPackages(),
             // 'media_source' => $this->statAdQuality->getMediaSource(),
             // 'ad_campaign'  => $this->statAdQuality->getAdCampaign(),
