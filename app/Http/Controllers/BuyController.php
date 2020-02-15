@@ -27,11 +27,12 @@ class BuyController extends Controller
         return view('buy', $output);
     }
 
-    public function OrderSubmit(Request $request)
+    public function OrderSubmit(Request $request, $plot_id)
     {
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
         $input     = $request->input();
+        var_dump($plot_id);
         var_dump($input);
     }
 }
