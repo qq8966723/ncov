@@ -30,6 +30,10 @@ class BuyController extends BaseController
         if ($plotInfo != false) {
             return redirect('/error')->with('msg', $plotInfo);
         }
+        $goodsCate = $this->GetGoodsCate($plot_id);
+        if ($plotInfo != false) {
+            return redirect('/error')->with('msg', $plotInfo);
+        }
         var_dump($this->params);
     }
 }
