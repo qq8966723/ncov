@@ -8,8 +8,22 @@ use Illuminate\Support\Facades\DB;
 
 class BuyController extends Controller
 {
-    public function FunctionName($value='')
+    // protected $model;
+    // public function __construct(StatAdQuality $statAdQuality)
+    // {
+    //     parent::__construct(); //调用父类构造函数
+    //     $this->statAdQuality = $statAdQuality;
+    // }
+
+    public function OrderInfo(Request $request)
     {
-        # code...
+        $output = array(
+            'url'          => $request->getPathInfo(),
+            'title'        => '渠道质量API报告',
+            // 'offers'       => $this->statAdQuality->getAppPackages(),
+            // 'media_source' => $this->statAdQuality->getMediaSource(),
+            // 'ad_campaign'  => $this->statAdQuality->getAdCampaign(),
+        );
+        return view('buy', $output);
     }
 }
