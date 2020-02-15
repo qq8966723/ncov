@@ -45,7 +45,7 @@ class BaseController extends Controller
             ['plot_id', '=', $plot_id],
             ['is_sell', '=', 1],
         ];
-        $rows = DB::connection()->table('plot_info')->where($where)->get();
+        $rows = DB::connection()->table('goods_cate')->where($where)->get();
         if (empty($rows)) {
             return '商品信息为空';
         }
