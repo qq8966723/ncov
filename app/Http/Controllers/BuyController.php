@@ -19,7 +19,7 @@ class BuyController extends Controller
     {
         $output = array(
             'url'          => $request->getPathInfo(),
-            'title'        => '渠道质量API报告',
+            'title'        => '文峰宝坻小区',
             // 'offers'       => $this->statAdQuality->getAppPackages(),
             // 'media_source' => $this->statAdQuality->getMediaSource(),
             // 'ad_campaign'  => $this->statAdQuality->getAdCampaign(),

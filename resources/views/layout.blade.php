@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{URL::asset('admin/assets/images/favicon.ico')}}" rel="icon">
-
+    <title>黄冈防疫-@yield('title')</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{URL::asset('bootstrap/css/bootstrap.min.css')}}" />
     @yield('css')
