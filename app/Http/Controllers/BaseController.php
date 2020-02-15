@@ -25,7 +25,7 @@ class BaseController extends Controller
         //     ->where('f_appid', '<>', '0')
         //     ->get()
         //     ->toArray();
-        $plotInfo = DB::connection()->table('product_cash_credit')->select(['f_appid', 'f_product_name'])->where('plot_id', '=', $plot_id)->first();
+        $plotInfo = DB::connection()->table('plot_info')->select(['plot_id', 'plot_name'])->where('plot_id', '=', $plot_id)->first();
         if (empty($plotInfo)) {
             return null;
         }
