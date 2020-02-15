@@ -19,7 +19,7 @@ class BaseController extends Controller
     public function GetPlotInfo($plot_id)
     {
         if (empty($plot_id)) {
-            return false;
+            return redirect('/error')->with('msg', '网站链接错误');
         }
         // $offers = DB::connection()->table('product_cash_credit')->select(['f_appid', 'f_product_name'])
         //     ->groupBy('f_product_name', 'f_appid')
@@ -29,11 +29,11 @@ class BaseController extends Controller
         //     ->toArray();
         $plotInfo = DB::connection()->table('plot_info')->select(['plot_id', 'plot_name'])->where('plot_id', '=', $plot_id)->first();
         if (empty($plotInfo)) {
-            return false;
+            return redirect('/error')->with('msg', '社区信息丢失');
         }
         $this->params['plot_id'] = $plotInfo->plot_id;
         $this->params['plot_name'] = $plotInfo->plot_name;
-        return true;
+        return false;
     }
 
 }

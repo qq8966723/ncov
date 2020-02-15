@@ -10,6 +10,7 @@ class BuyController extends BaseController
 {
     public function OrderInfo(Request $request, $plot_id)
     {
+
         $output = array(
             'url'          => $request->getPathInfo(),
             'title'        => '文峰宝坻小区',
@@ -25,7 +26,7 @@ class BuyController extends BaseController
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
         // $input     = $request->input();
-        $plotInfo = $this->GetPlotInfo($plot_id);
+        $this->GetPlotInfo($plot_id);
         var_dump($this->params);
     }
 }
