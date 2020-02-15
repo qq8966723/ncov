@@ -26,7 +26,10 @@ class BuyController extends BaseController
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
         // $input     = $request->input();
-        $this->GetPlotInfo($plot_id);
+        $plotInfo = $this->GetPlotInfo($plot_id);
+        if ($plotInfo == false) {
+            return $plotInfo;
+        }
         var_dump($this->params);
     }
 }
