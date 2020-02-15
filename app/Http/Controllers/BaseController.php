@@ -32,12 +32,4 @@ class BaseController extends Controller
         return $plotInfo->toArray();
     }
 
-    public function OrderSubmit(Request $request, $plot_id)
-    {
-        // $id     = $request->input('id');
-        // $input  = $request->except(['id']);
-        $input     = $request->input();
-        var_dump($plot_id);
-        var_dump($input);
-    }
 }
