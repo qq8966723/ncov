@@ -8,7 +8,7 @@
 
 @section('main')
 	
-    <p class="text-danger">{{ $msg }}</p>
+    <p class="text-center">{{ $msg }}</p>
 
 @endsection
 
