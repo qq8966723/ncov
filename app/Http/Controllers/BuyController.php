@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class BuyController extends Controller
+class BuyController extends BaseController
 {
-    // protected $model;
-    // public function __construct(StatAdQuality $statAdQuality)
-    // {
-    //     parent::__construct(); //调用父类构造函数
-    //     $this->statAdQuality = $statAdQuality;
-    // }
-
-    public function OrderInfo(Request $request)
+    public function OrderInfo(Request $request, $plot_id)
     {
         $output = array(
             'url'          => $request->getPathInfo(),
@@ -31,8 +24,8 @@ class BuyController extends Controller
     {
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
-        $input     = $request->input();
-        var_dump($plot_id);
-        var_dump($input);
+        // $input     = $request->input();
+        $plotInfo = $this->GetPlotInfo($plot_id);
+        var_dump($plotInfo);
     }
 }
