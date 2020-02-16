@@ -72,7 +72,7 @@ class BaseController extends Controller
             $this->params['goods_info'][$row->cate_name][] = [
                 'goods_id' => $row->goods_id,
                 'goods_name' => $row->goods_name,
-            ]
+            ];
         }
         return false;
     }
