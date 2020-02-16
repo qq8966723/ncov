@@ -32,7 +32,7 @@ class BuyController extends BaseController
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
         $input     = $request->input();
-        // var_dump($input);die();
+        // var_dump($input);
         $order_info = array(
             'plot_id' => $plot_id, 
             'addr_build' => empty($input['addr_build'])?null:$input['addr_build'],
@@ -49,9 +49,8 @@ class BuyController extends BaseController
             if (empty($value) || $value < 1) {
                 continue;
             }
-            if (strpos($key, 'goods_id') > 1) {
+            if (strpos($key, 'goods_id') !== false) {
                 $row = $order_info;
-
                 $goods_arr = explode("#", $key);
                 $row['goods_id'] = trim($goods_arr[1]);
                 $row['goods_num'] = $value;
