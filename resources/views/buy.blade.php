@@ -62,10 +62,12 @@
     </div>
     
     <!-- <ul class="list-unstyled"> -->
-    <ul class="list-inline">
-      <li><a href="login.html"><strong>社区管理员入口</strong></a></li>
-      <li><a href="contact.html">其他社区使用申请</a></li>
-    </ul>
+    <p class="text-center">
+      <ul class="list-inline">
+        <li><a href="login.html"><strong>社区管理员入口</strong></a></li>
+        <li><a href="contact.html">其他社区使用申请</a></li>
+      </ul>
+    </p>
 
 @endsection
 
