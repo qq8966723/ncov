@@ -70,8 +70,8 @@ class BaseController extends Controller
         }
         foreach ($rows as $row) {
             $this->params['goods_info'][$row->cate_name][] = [
-                'goods_id' = $row->goods_id,
-                'goods_name' = $row->goods_name,
+                'goods_id' => $row->goods_id,
+                'goods_name' => $row->goods_name,
             ]
         }
         return false;
