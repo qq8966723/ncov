@@ -8,6 +8,11 @@
     <title>黄冈防疫-@yield('title')</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{URL::asset('bootstrap/css/bootstrap.min.css')}}" />
+    <style type="text/css">
+        .container-fluid{
+            min-height: 500em;
+        }
+    </style>
     @yield('css')
 
     <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
