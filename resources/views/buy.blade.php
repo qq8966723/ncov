@@ -37,7 +37,7 @@
         </tr>
         
         @foreach ($goods as $key => $value)
-            @for ($i = 0; $i < {{count($value)}}; $i++)
+            @for ($i = 0; $i < count($value); $i++)
               <tr>
                 @if ($i==0)
                   <td class="active" rowspan="{{count($value)}}">{{$key}}</td>
