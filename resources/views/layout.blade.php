@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{URL::asset('bootstrap/css/bootstrap.min.css')}}" />
     <style type="text/css">
         .main{
-            min-height: 100em;
+            min-height: 60em;
         }
     </style>
     @yield('css')
