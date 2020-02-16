@@ -24,47 +24,37 @@ class AdminController extends BaseController
 
     public function LoginSubmit(Request $request, $plot_id)
     {
-        // $id     = $request->input('id');
-        // $input  = $request->except(['id']);
-        $input     = $request->input();
-        // var_dump($input);
-        $order_info = array(
-            'plot_id' => $plot_id, 
-            'addr_build' => empty($input['addr_build'])?null:$input['addr_build'],
-            'addr_unit' => empty($input['addr_unit'])?null:$input['addr_unit'],
-            'addr_room' => empty($input['addr_room'])?null:$input['addr_room'],
-            'user_mobile' => empty($input['user_mobile'])?null:$input['user_mobile'],
-            'push_time' => time(),
-            'cdate' => date('Y-m-d'),
-        );
-        $order_info['order_no'] = md5(json_encode($order_info));
+        $user_password = $request->input('user_password');
+        if (empty($user_password)) {
+            return redirect('/error')->with('msg', '密码不能为空');
+        }
+        $where = [
+            ['plot_id', '=', $plot_id],
+            ['user_password', '=', $user_password],
+            ['is_on', '=', 1],
+        ];
+        $row = DB::connection()->table('user_info')->where($where)->first();
+        if (empty($row)) {
+            return redirect('/error')->with('msg', '登录信息错误');
+        }
+        $request->session()->put('user_id', $row->user_id);
+        return redirect('/admin/'.$plot_id.'/fun-list');
+    }
 
-        $rows = array();
-        foreach ($input as $key => $value) {
-            if (empty($value) || $value < 1) {
-                continue;
+    public function FunList(Request $request, $plot_id)
+    {
+        if ($request->session()->has('user_id')) {
+            $plotInfo = $this->GetPlotInfo($plot_id);
+            if ($plotInfo != false) {
+                return redirect('/error')->with('msg', $plotInfo);
             }
-            if (strpos($key, 'goods_id') !== false) {
-                $row = $order_info;
-                $goods_arr = explode("#", $key);
-                $row['goods_id'] = trim($goods_arr[1]);
-                $row['goods_num'] = $value;
-                $rows[] = $row;
-            }
+            $output = array(
+                'url'          => $request->getPathInfo(),
+                'title'        => $this->params['plot_info']['plot_name'],
+                'plot'         => $this->params['plot_info']['plot_id'],
+            );
+            return view('admin', $output);
         }
-        if (empty($rows)) {
-            return redirect('/error')->with('msg', '采购物品为空');
-        }
-        DB::connection()->table('order_info')->insert($rows);
-        return redirect('/error')->with('msg', '提交成功，请先付款并保持手机畅通');
-        // $plotInfo = $this->GetPlotInfo($plot_id);
-        // if ($plotInfo != false) {
-        //     return redirect('/error')->with('msg', $plotInfo);
-        // }
-        // $goodsCate = $this->GetGoodsCate($plot_id);
-        // if ($plotInfo != false) {
-        //     return redirect('/error')->with('msg', $plotInfo);
-        // }
-        // var_dump($input);
+        return redirect('/error')->with('msg', '会话超时请登录');
     }
 }

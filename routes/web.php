@@ -17,3 +17,5 @@ Route::post('/buy/{plot_id}/order-submit',  'BuyController@OrderSubmit');
 
 Route::get( '/admin/{plot_id}/mgr-login',   'AdminController@MgrLogin');
 Route::post('/admin/{plot_id}/login-submit','AdminController@LoginSubmit');
+
+Route::get( '/admin/{plot_id}/fun-list',   'AdminController@FunList');
