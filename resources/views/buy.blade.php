@@ -63,9 +63,10 @@
     
 
     <p class="text-center">
-      <a href="login.html"><strong>社区管理员入口</strong></a>
-      <br/>
-      <a href="contact.html">其他社区免费使用入口</a>
+      <ul class="list-unstyled">
+        <li><a href="login.html"><strong>社区管理员入口</strong></a></li>
+        <li><a href="contact.html">其他社区免费使用入口</a></li>
+      </ul>
     </p>
 
 @endsection
