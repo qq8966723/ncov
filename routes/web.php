@@ -12,5 +12,5 @@
 */
 Route::get('/error',   'ErrorController@ShowMessge');
 
-Route::get('/buy/{plot_id}/order-info',   'BuyController@OrderInfo');
-Route::get('/buy/{plot_id}/order-submit', 'BuyController@OrderSubmit');
+Route::get('/buy/{plot_id}/order-info',    'BuyController@OrderInfo');
+Route::post('/buy/{plot_id}/order-submit', 'BuyController@OrderSubmit');
