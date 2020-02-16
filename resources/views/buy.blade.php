@@ -36,13 +36,13 @@
           <td class="danger"><h4>数量</h4></td>
         </tr>
         
-        @foreach ($goods as $key => $value) {
+        @foreach ($goods as $key => $value)
           <tr>
             <td class="active">{{ $key }}</td>
             <td class="success" colspan="3">
                 <select class="form-control">
                   <option value="">不需要</option>
-                  @foreach ($value as $good) {
+                  @foreach ($value as $good)
                     <option value="{{$good['goods_id']}}">{{$good['goods_name']}}</option>
                   @endforeach
                 </select>
