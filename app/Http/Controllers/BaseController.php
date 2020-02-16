@@ -57,7 +57,7 @@ class BaseController extends Controller
 
     public function GetGoodsInfo($plot_id)
     {
-        if (empty($idplot_id)) {
+        if (empty($plot_id)) {
             return '网站链接错误';
         }
         $where = [
