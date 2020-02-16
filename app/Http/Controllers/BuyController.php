@@ -32,7 +32,7 @@ class BuyController extends BaseController
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
         $input     = $request->input();
-        var_dump($input);die();
+        // var_dump($input);die();
         $order_info = array(
             'plot_id' => $plot_id, 
             'addr_build' => empty($input['addr_build'])?null:$input['addr_build'],
