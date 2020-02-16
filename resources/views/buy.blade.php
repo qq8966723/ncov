@@ -37,16 +37,17 @@
         </tr>
         
         @foreach ($goods as $key => $value)
-          <tr>
-            <td class="active" rowspan="{{count($value)}}">{{$key}}</td>
-
-            @foreach ($value as $good)
-              <td class="success" colspan="3">{{$good['goods_name']}}</td>
-              <td class="warning">
-                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-              </td>
+            @for ($i = 0; $i < {{count($value)}}; $i++)
+              <tr>
+                @if ($i==0)
+                  <td class="active" rowspan="{{count($value)}}">{{$key}}</td>
+                @endif
+                <td class="success" colspan="3">{{$value[$i]['goods_name']}}</td>
+                <td class="warning">
+                  <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
+                </td>
+              </tr>
             @endforeach
-          </tr>
         @endforeach
 
         <tr>
