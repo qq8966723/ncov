@@ -10,11 +10,18 @@ class BuyController extends BaseController
 {
     public function OrderInfo(Request $request, $plot_id)
     {
-
+        $plotInfo = $this->GetPlotInfo($plot_id);
+        if ($plotInfo != false) {
+            return redirect('/error')->with('msg', $plotInfo);
+        }
+        $goodsInfo = $this->GetGoodsInfo($plot_id);;
+        if ($goodsInfo != false) {
+            return redirect('/error')->with('msg', $goodsInfo);
+        }
         $output = array(
             'url'          => $request->getPathInfo(),
-            'title'        => '文峰宝坻小区',
-            // 'offers'       => $this->statAdQuality->getAppPackages(),
+            'title'        => $this->params['plot_info']['plot_name'],
+            'goods'        => $this->params['goods_info'],
             // 'media_source' => $this->statAdQuality->getMediaSource(),
             // 'ad_campaign'  => $this->statAdQuality->getAdCampaign(),
         );

@@ -35,91 +35,23 @@
           <td class="danger" colspan="3"><h4>牌子</h4></td>
           <td class="danger"><h4>数量</h4></td>
         </tr>
-      
-        <tr>
-          <td class="active">蔬菜套餐</td>
-          <td class="success" colspan="3">
-              <select class="form-control">
-                <option>不需要</option>
-                <option>40元蔬菜</option>
-                <option>60元蔬菜</option>
-                <option>100元蔬菜</option>
-              </select>
-          </td>
-          <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-          </td>
-        </tr>
-
-        <tr>
-          <td class="active">米</td>
-          <td class="success" colspan="3">
-              <select class="form-control">
-                <option>不需要</option>
-                <option>20斤新盛思苗米(49.9元/袋)</option>
-              </select>
-          </td>
-          <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-          </td>
-        </tr>
-
-        <tr>
-          <td class="active">油</td>
-          <td class="success" colspan="3">
-              <select class="form-control">
-                <option>不需要</option>
-                <option>5升金龙鱼调和油(49.9元/壶)</option>
-                <option>5升黄商玉米油(72.9元/壶)</option>
-                <option>5升黄商葵花籽油(69.9元/壶)</option>
-                <option>5升黄商菜籽油(59.9元/壶)</option>
-              </select>
-          </td>
-          <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-          </td>
-        </tr>
-
-        <tr>
-          <td class="active">面粉</td>
-          <td class="success" colspan="3">
-              <select class="form-control">
-                <option>不需要</option>
-                <option>10斤黄商面粉(28.5元/袋)</option>
-              </select>
-          </td>
-          <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-          </td>
-        </tr>
-
-        <tr>
-          <td class="active">纸巾</td>
-          <td class="success" colspan="3">
-              <select class="form-control">
-                <option>不需要</option>
-                <option>维达2000提纸(30.9元/提)</option>
-                <option>维达纸(26.9元/提)</option>
-                <option>维达抽纸(22.9元/提)</option>
-              </select>
-          </td>
-          <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-          </td>
-        </tr>
-
-        <tr>
-          <td class="active">豆腐套餐</td>
-          <td class="success" colspan="3">
-              <select class="form-control">
-                <option>不需要</option>
-                <option>30元豆制品</option>
-              </select>
-          </td>
-          <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-          </td>
-        </tr>
+        
+        @foreach ($goods as $key => $value) {
+          <tr>
+            <td class="active">{{ $key }}</td>
+            <td class="success" colspan="3">
+                <select class="form-control">
+                  <option value="">不需要</option>
+                  @foreach ($value as $good) {
+                    <option value="{{$good['goods_id']}}">{{$good['goods_id']}}</option>
+                  @endforeach
+                </select>
+            </td>
+            <td class="warning">
+              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
+            </td>
+          </tr>
+        @endforeach
 
         <tr>
           <td class="active" colspan="5">
