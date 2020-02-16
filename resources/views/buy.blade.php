@@ -45,7 +45,6 @@
               <td class="warning">
                 <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
               </td>
-            </td>
             @endforeach
           </tr>
         @endforeach
