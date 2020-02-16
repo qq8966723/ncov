@@ -43,7 +43,7 @@
                 <select class="form-control">
                   <option value="">不需要</option>
                   @foreach ($value as $good) {
-                    <option value="{{$good['goods_id']}}">{{$good['goods_id']}}</option>
+                    <option value="{{$good['goods_id']}}">{{$good['goods_name']}}</option>
                   @endforeach
                 </select>
             </td>
@@ -61,7 +61,12 @@
       </table>
     </div>
     
-    <p class="text-center"><a href="login.html">社区管理员入口</a></p>
+
+    <p class="text-center">
+      <a href="login.html"><strong>社区管理员入口</strong></a>
+      <br/>
+      <a href="contact.html">其他社区免费使用入口</a>
+    </p>
 
 @endsection
 
