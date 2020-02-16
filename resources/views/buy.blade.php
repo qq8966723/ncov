@@ -7,6 +7,7 @@
 @endsection
 
 @section('main')
+  <div class="main">
     <h3 class="text-center">日用蔬果采购登记</h3>
     <form method="post" action="{{url('/buy/'.$plot.'/order-submit')}}">
       @csrf
@@ -59,7 +60,7 @@
         </table>
       </div>
     </form>
-
+  </div>
 @endsection
 
 @section('js')

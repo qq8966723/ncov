@@ -7,9 +7,9 @@
 @endsection
 
 @section('main')
-	
+  <div class="main">
     <p class="text-center">{{ $msg }}</p>
-
+  </div>
 @endsection
 
 @section('js')
