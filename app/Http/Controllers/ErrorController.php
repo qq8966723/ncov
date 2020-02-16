@@ -11,7 +11,7 @@ class ErrorController extends BaseController
     {
         $output = array(
             'url'   => $request->getPathInfo(),
-            'title' => '发生错误',
+            'title' => '提示信息',
             'msg'   => $request->session()->get('msg'),
             // 'offers'       => $this->statAdQuality->getAppPackages(),
             // 'media_source' => $this->statAdQuality->getMediaSource(),
