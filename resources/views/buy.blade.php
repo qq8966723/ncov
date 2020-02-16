@@ -47,7 +47,7 @@
                   <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
                 </td>
               </tr>
-            @endforeach
+            @endfor
         @endforeach
 
         <tr>
