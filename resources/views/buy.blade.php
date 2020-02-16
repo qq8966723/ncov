@@ -45,7 +45,7 @@
                   @endif
                   <td class="success" colspan="3">{{$value[$i]['goods_name']}}</td>
                   <td class="warning">
-                    <input type="number" class="form-control" name="{{'goods_id'.$value[$i]['goods_id']}}" placeholder="数量">
+                    <input type="number" class="form-control" name="{{'goods_id#'.$value[$i]['goods_id']}}" placeholder="数量">
                   </td>
                 </tr>
               @endfor

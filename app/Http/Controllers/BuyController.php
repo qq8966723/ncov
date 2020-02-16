@@ -32,6 +32,36 @@ class BuyController extends BaseController
         // $id     = $request->input('id');
         // $input  = $request->except(['id']);
         $input     = $request->input();
+        $order_info = array(
+            'plot_id' => $plot_id, 
+            'addr_build' => empty($input['addr_build'])?null:$input['addr_build'],
+            'addr_unit' => empty($input['addr_unit'])?null:$input['addr_unit'],
+            'addr_room' => empty($input['addr_room'])?null:$input['addr_room'],
+            'user_mobile' => empty($input['user_mobile'])?null:$input['user_mobile'],
+            'push_time' => time(),
+            'cdate' => date('Y-m-d'),
+        );
+        $order_info['order_no'] = md5(json_encode($order_info));
+
+        $rows = array();
+        foreach ($input as $key => $value) {
+            if (empty($value) || $value < 1) {
+                continue;
+            }
+            if (strpos($key, 'goods_id') > 1) {
+                $row = $order_info;
+
+                $goods_arr = explode("#", $key);
+                $row['goods_id'] = trim($goods_arr[1]);
+                $row['goods_num'] = $value;
+                $rows[] = $row;
+            }
+        }
+        if (empty($rows)) {
+            return redirect('/error')->with('msg', '采购物品为空');
+        }
+        DB::connection()->table('order_info')->insert($rows);
+        return redirect('/error')->with('msg', '提交成功，请先付款并保持手机畅通');
         // $plotInfo = $this->GetPlotInfo($plot_id);
         // if ($plotInfo != false) {
         //     return redirect('/error')->with('msg', $plotInfo);
@@ -40,6 +70,6 @@ class BuyController extends BaseController
         // if ($plotInfo != false) {
         //     return redirect('/error')->with('msg', $plotInfo);
         // }
-        var_dump($input);
+        // var_dump($input);
     }
 }
