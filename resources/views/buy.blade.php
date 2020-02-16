@@ -14,19 +14,19 @@
         <tr>
           <td class="danger"><h4>配送信息</h4></td>
           <td class="warning" colspan="4">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="手机号码">
+            <input type="number" class="form-control" name="user_mobile" placeholder="手机号码">
           </td>
         </tr>
         
         <tr>
           <td class="warning">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="栋">
+            <input type="number" class="form-control" id="addr_build" placeholder="栋">
           </td>
           <td class="warning" colspan="2">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="单元">
+            <input type="number" class="form-control" id="addr_unit" placeholder="单元">
           </td>
           <td class="warning" colspan="2">
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="房号">
+            <input type="number" class="form-control" id="addr_room" placeholder="房号">
           </td>
         </tr>
 
@@ -38,18 +38,15 @@
         
         @foreach ($goods as $key => $value)
           <tr>
-            <td class="active">{{ $key }}</td>
-            <td class="success" colspan="3">
-                <select class="form-control">
-                  <option value="">不需要</option>
-                  @foreach ($value as $good)
-                    <option value="{{$good['goods_id']}}">{{$good['goods_name']}}</option>
-                  @endforeach
-                </select>
+            <td class="active" rowspan="{{count($value)}}">{{$key}}</td>
+
+            @foreach ($value as $good)
+              <td class="success" colspan="3">{{$good['goods_name']}}</td>
+              <td class="warning">
+                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
+              </td>
             </td>
-            <td class="warning">
-              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="数量">
-            </td>
+            @endforeach
           </tr>
         @endforeach
 
