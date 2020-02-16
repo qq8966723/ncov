@@ -60,6 +60,10 @@
         </table>
       </div>
     </form>
+
+    <p class="text-center">
+      <a href="{{url('/admin/'.$plot.'/mgr-login')}}">社区管理员入口</a> 
+    </p>
   </div>
 @endsection
 
