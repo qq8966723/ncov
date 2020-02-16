@@ -19,7 +19,7 @@ class AdminController extends BaseController
             'title'        => $this->params['plot_info']['plot_name'],
             'plot'         => $this->params['plot_info']['plot_id'],
         );
-        return view('buy', $output);
+        return view('login', $output);
     }
 
     public function LoginSubmit(Request $request, $plot_id)
